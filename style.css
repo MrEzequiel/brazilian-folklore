@@ -1,0 +1,433 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  border-radius: 0.5rem;
+}
+
+:root {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font: 400 1.6rem/1 'Hind', sans-serif;
+}
+
+p {
+  line-height: 1.4;
+}
+
+/* GRID CONTAINER */
+.container {
+  display: grid;
+  grid-template-columns: minmax(160px, 1fr) 3fr 300px;
+  grid-template-areas:
+    'header header header'
+    'sidenav content adverts'
+    'footer footer footer';
+}
+#header {
+  grid-area: header;
+}
+.sidenav {
+  grid-area: sidenav;
+}
+.content {
+  grid-area: content;
+}
+.adverts {
+  grid-area: adverts;
+}
+#footer {
+  grid-area: footer;
+}
+
+/* HEADER =============================*/
+
+#header {
+  background: linear-gradient(135deg, #3e6ac3, #020e4a);
+  padding: 3rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+#header .logo a {
+  color: #fff;
+  font-family: 'Arima Madurai', cursive;
+  font-size: 4rem;
+}
+
+#header nav ul {
+  display: flex;
+  gap: 2rem;
+}
+
+#header nav ul li {
+  background: #164398;
+  padding: 0.75rem 0.5rem;
+  border-radius: 0.5rem;
+
+  transition: background 300ms ease;
+}
+
+#header nav ul li:hover {
+  background: #2a52a7;
+}
+
+#header nav ul li a {
+  color: #fff;
+  font-size: 2rem;
+}
+
+/* SIDENAV =============================*/
+@keyframes flying {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.sidenav {
+  background: #fafbfc;
+  padding: 3rem;
+}
+
+.sidenav li a {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 100px;
+  max-width: 140px;
+  height: 140px;
+
+  padding: 2rem;
+  margin: 0 auto 3rem auto;
+
+  border-radius: 0.5rem;
+  box-shadow: 0.5rem 0.5rem 1.5rem 0 rgba(44, 44, 44, 0.15);
+
+  transition: background 300ms;
+}
+
+.sidenav li a img {
+  transform: translateY(0px);
+  width: 100%;
+}
+
+.sidenav li a:hover {
+  background: #f6e535;
+  box-shadow: none;
+}
+
+.sidenav li a:hover img {
+  animation: flying 3s ease-in-out infinite alternate;
+}
+
+/* CONTENT =============================*/
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+/* CLASSE QUE CONTEM COL-WIDE VAI PEGAR TODAS AS COLUNAS DISPONIVEIS */
+.content .col-wide {
+  grid-column: 1/-1;
+}
+
+.content .image-1 {
+  grid-row: span 2;
+  align-self: flex-end;
+}
+
+.content .image-2 {
+  align-self: flex-end;
+}
+
+.content p {
+  font-size: 1.9rem;
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.content .title {
+  color: #3e6ac3;
+  font-family: 'Merriweather', serif;
+}
+
+.title h1 {
+  font-size: 6rem;
+  line-height: 1;
+  font-weight: 700;
+}
+.title span {
+  font-size: 1.4rem;
+  font-style: italic;
+}
+
+.content .characteristics {
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem;
+}
+
+.characteristics > div {
+  display: flex;
+  flex-direction: column;
+  width: 80px;
+  text-align: center;
+
+  background: linear-gradient(135deg, #3e6ac3, #020e4a);
+  border-radius: 0.5rem;
+  box-shadow: 0.5rem 0.5rem 1.5rem 0 rgba(44, 44, 44, 0.15);
+
+  transition: box-shadow 400ms ease;
+}
+
+.characteristics > div:hover {
+  box-shadow: none;
+}
+
+.number {
+  color: #f6e535;
+  font-size: 4.8rem;
+  line-height: 1;
+  margin: 1rem auto;
+}
+
+.label {
+  position: relative;
+  top: 2px;
+
+  background: #fff;
+  color: #3e6ac3;
+  border-radius: 0 0 0.5rem 0.5rem;
+  padding: 0.5rem 0;
+}
+
+.content .highlight {
+  max-width: 30rem;
+  font-size: 1.4rem;
+  color: #3e6ac3;
+}
+
+.quote,
+.attributes {
+  align-self: start;
+  background: linear-gradient(135deg, #3e6ac3, #020e4a);
+  color: #fff;
+  padding: 3rem;
+  border-radius: 0.5rem;
+  box-shadow: 0.5rem 0.5rem 1.5rem 0 rgba(44, 44, 44, 0.15);
+}
+
+.quote p {
+  max-width: 50rem;
+  margin: 0 auto;
+
+  color: #fff;
+  font-size: 2.4rem;
+  text-align: center;
+  font-family: 'Merriweather', serif;
+  font-style: italic;
+}
+
+.attributes li {
+  font-family: 'Courier Prime', monospace;
+  font-size: 1.8rem;
+  font-weight: 100;
+  padding: 1.5rem;
+  border-bottom: 0.2rem solid #3e6ac3;
+}
+
+.attributes li:last-child {
+  border: none;
+}
+
+.content .information p + p {
+  margin-top: 3rem;
+}
+
+/* ADVERTS =============================*/
+.adverts {
+  background: #fafbfc;
+  padding: 3rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.adverts .advert-item {
+  position: relative;
+  height: 300px;
+}
+
+.advert-item img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.advert-item p {
+  position: absolute;
+  bottom: 0;
+
+  background: #f6e635b2;
+  width: 100%;
+  padding: 1rem;
+
+  text-align: center;
+  font-family: 'Merriweather', serif;
+  font-size: 2rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+/* FOOTER =============================*/
+#footer {
+  background: linear-gradient(135deg, #3e6ac3, #020e4a);
+  color: #fff;
+  font-size: 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 3rem;
+}
+
+#footer .dev p {
+  text-align: right;
+}
+
+#footer .social {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.5rem;
+}
+
+.social a {
+  width: 40px;
+  height: 40px;
+}
+
+/* RESPONSIVE =============================*/
+
+@media (max-width: 1200px) {
+  .container {
+    grid-template-areas:
+      'header header header'
+      'sidenav content content'
+      'sidenav adverts adverts'
+      'footer footer footer';
+  }
+  .adverts {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 760px) {
+  @keyframes arrow {
+    from {
+      right: 30px;
+    }
+    to {
+      right: 20px;
+    }
+  }
+
+  #header {
+    text-align: center;
+    flex-direction: column;
+  }
+  .container {
+    grid-template-columns: 100%;
+    grid-template-areas:
+      'header'
+      'sidenav'
+      'content'
+      'adverts'
+      'footer';
+  }
+
+  .sidenav {
+    position: relative;
+    padding: 0 3rem;
+    overflow-x: auto;
+  }
+
+  .sidenav::after {
+    content: '\2192';
+    position: absolute;
+    top: 2px;
+    right: 25px;
+
+    color: #2a52a7;
+    font-size: 2.5rem;
+
+    animation: arrow 500ms ease-in 0s infinite alternate;
+  }
+
+  .sidenav ul {
+    display: flex;
+  }
+
+  .sidenav ul li {
+    flex: 1 0 60px;
+  }
+  .sidenav li a {
+    height: 100px;
+    margin: 3rem;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .content {
+    grid-template-columns: auto;
+  }
+
+  #footer {
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+  }
+
+  #footer .social {
+    justify-content: center;
+  }
+}
